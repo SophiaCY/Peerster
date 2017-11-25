@@ -3,11 +3,25 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET = peerster
 DEPENDPATH += .
-INCLUDEPATH += .
-QT += network
+INCLUDEPATH += . /usr/local/Cellar/qca/2.1.3_1/
+QT += widgets network
+#INCLUDEPATH += /usr/local/Cellar/qca/2.1.3_1/include/
+#QMAKESPEC=macx-g++ ./configure
+#LIBS += -F/usr/local/Cellar/qca/2.1.3_1/lib -framework qca
+CONFIG += crypto
 
 # Input
-HEADERS += main.hh
-SOURCES += main.cc
+HEADERS += main.hh \
+    netsocket.h \
+    peer.h \
+    node.h \
+    p2pchatdialog.h \
+    file.h
+SOURCES += main.cc \
+    netsocket.cpp \
+    peer.cpp \
+    node.cpp \
+    p2pchatdialog.cpp \
+    file.cpp
